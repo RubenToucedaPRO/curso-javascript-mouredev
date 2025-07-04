@@ -13,8 +13,10 @@ Mi objetivo es aprender a programar con JavaScript desde cero y compartir mi pro
 Incluye:
 
 - Fundamentos del lenguaje
-- Variables, condicionales, bucles
-- Funciones, arrays, objetos
+- Variables, operadores, condicionales, bucles
+- Funciones, arrays, objetos, clases
+- Desetructuracion y porpagación
+- Gestion de errores, console, import y export modules
 
 ---
 
@@ -39,14 +41,23 @@ Incluye:
 ## 🧠 Estructura del proyecto
 
 ```bash
-.
-pendiente
-
----
-
-📈 Progreso
-Estoy completando las lecciones una por una.
-Este repositorio se actualizará a medida que avance con nuevas prácticas y mejoras.
+    .
+    ├── Basic/
+    │   ├── 00-helloworld.js
+    │   ├── 01-variables.js
+    │   ├── 02-datatypes.js
+    │   ├── ...
+    │   ├── 31-exercise-import.js
+    │   ├── package.json
+    │   └── readme.md
+    │
+    ├── Intermediate/
+    │   └── ... (en progreso)
+    │
+    ├── .vscode/
+    ├── .gitignore
+    └── README.md
+```
 
 ---
 
