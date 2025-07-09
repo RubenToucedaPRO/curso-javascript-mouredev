@@ -57,13 +57,14 @@ Incluye:
     ├── .vscode/
     ├── .gitignore
     └── README.md
+    
 ```
 
 ---
 
 ## 🔗 Recursos
 
-- 📺 [Curso en YouTube: Curso gratuito JavaScript - MoureDev](https://www.youtube.com/playlist?list=PLU8oAlHdN5BmpIQGDSHo5e1r4ZYWQ8m4B)
+- 📺 [Curso en YouTube: Curso gratuito JavaScript - MoureDev](https://www.youtube.com/watch?v=1glVfFxj8a4)
 - 💻 [Repositorio original en GitHub](https://github.com/mouredev/hello-javascript)
 
 ---
