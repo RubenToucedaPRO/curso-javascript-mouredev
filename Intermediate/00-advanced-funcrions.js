@@ -28,7 +28,14 @@ function returnGreeting() {
 const greet2 = returnGreeting();
 greet2("Juan", 60);
 
+//* -------------------------------------- */
 //Arrow funtcions advanced
+// Las arrow functions son una forma más concisa de escribir funciones en JavaScript.
+// No tienen su propio `this`, por lo que no se pueden usar como métodos de objetos
+// y no pueden ser usadas como constructores (no se pueden usar con `new`).
+// Tienen un retorno implícito si no se usa llaves `{}` y se escribe
+// una sola expresión en el cuerpo de la función.
+
 // 1 -con retorno implicito
 console.log(`Arrow function advanced con retorno implicito`);
 const multiply = (a, b) => a * b;
@@ -40,16 +47,21 @@ let name = "Jorgeeee";
 const obj = {
   name: "Rubén",
   normal: function () {
-    console.log(this.name); // "Rubén", porque `this` apunta a `obj`
+    console.log(this.name); // "Rubén", porque `this` apunta al `obj`
   },
   arrow: () => {
-    console.log(this.name); // `undefined`, porque `this` viene del lugar donde fue definida (window o module)
+    const name = "Jorgito";
+    console.log(this.name); // `undefined`, porque `this` viene del contexto global
+    // y no del objeto `obj`, en el navegador sería `window.name`
+    // En Node.js sería `global.name`
     console.log(name);
   },
 };
 
 obj.normal(); // Rubén
 obj.arrow(); // undefined
+
+/* ------------------------ */
 //IIFE - > (funcion invocada inmediatamente) -> No son habituales
 // - IIFE clasico: Son necesarios los ; para delimitar el contexto de esta con respecto al codigo anterior
 console.log(`IFE`);
@@ -74,7 +86,8 @@ function sum(b, ...numbers) {
 console.log(sum(10, 1, 2, 3, 4, 5));
 console.log(sum(10, 1, 2));
 
-//Operador spread(...)-> Para expandir los elementos de n array
+//Operador spread(...)-> Para expandir los elementos de n array a la hora de pasarlos como parametros
+//Se usa para pasar un array como si fueran varios parametros. Resumen: Desempaquetar un array
 console.log(`Operador spread`);
 function sumWithSpread(a, b, c) {
   return a + b + c;
@@ -163,23 +176,22 @@ console.log(sumAB(4)(5));
 //Ejemplo sin completar función
 //console.log(sumAB(2));
 
-//Callbacks -> A una funcion le pasamos como argumento otra funcion
+//Callbacks -> son funciones que se pasan como argumentos a otras funciones
+// y se ejecutan después de que la función principal haya terminado su tarea.
 console.log(`Callbacks`);
 function processData(data, callback) {
   const result = sum(...data);
   callback(result);
 }
+
 //  Funcion callback
-function processResult(result) {
-  console.log(result);
-}
-//  Funcion callback
-function processResult2(result) {
+function funcionCallback(result) {
   console.log(`Mi resultado es:`, result);
 }
 
-processData([1, 2, 3], processResult);
-processData([1, 2, 3], processResult2);
+processData([1, 2, 3], funcionCallback);
+
+//Funcion callback con funcion anonima.
 processData([1, 2, 3], (result) => {
   console.log("El resultado es:", result);
 });

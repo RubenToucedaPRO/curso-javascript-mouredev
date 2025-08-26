@@ -16,6 +16,12 @@ const varGreet = greet("Rubén", 40);
 greet("Rubén", 40); //Hola, Jose y 40 de edad
 ```
 
+```js
+const greet2 = funcion("Rubén", 40);
+
+greet2("Rubén", 40); //Hola, Jose y 40 de edad
+```
+
 ### Ejemplo función dentro de una función y pasar por parametros la funcion
 
 Una función puede recibir otra función como argumento y ejecutarla.
