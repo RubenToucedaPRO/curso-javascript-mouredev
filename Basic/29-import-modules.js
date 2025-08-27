@@ -30,6 +30,6 @@ console.log(circulo.area().toFixed(2));
 //import { MyClass } from "directorio";
 
 //Modulos externos
-const os = require("os"); //Es de node
-
+//const os = require("os"); //Es de node
+import os from "os";
 console.log(os.platform());

@@ -7,9 +7,9 @@ let [v1, v2] = a1;
 console.log(v1, ", ", v2);
 
 //Sintaxis arrays con valores predeterminados
-[v1 = 0, v2, v3, v4, v5, v6 = 0] = a1;
-console.log(v1);
-console.log(v2);
+let [v01 = 0, v02, v3, v4, v5, v6 = 0] = a1;
+console.log(v01);
+console.log(v02);
 console.log(v3);
 console.log(v4);
 console.log(v5);
@@ -75,7 +75,7 @@ console.log(a3);
 let a4 = [...a2, ...a3];
 console.log(a4);
 
-//Sprading objects
+//Spreading objects
 let p4 = { ...p, alias: "pera" };
 console.log(p4);
 

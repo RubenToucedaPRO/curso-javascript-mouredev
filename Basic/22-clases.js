@@ -23,7 +23,8 @@ class DefaultPerson {
   }
 }
 
-let p1 = new DefaultPerson((alias = "RR")); //->van por orden, no reconoce la etiqueta
+let p1 = new DefaultPerson();
+//let p1 = new DefaultPerson((alias = "RR")); //->van por orden, no reconoce la etiqueta
 console.log(p1);
 
 //Acceso a propiedades

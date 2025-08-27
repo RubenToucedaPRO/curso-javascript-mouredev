@@ -13,9 +13,9 @@ console.log(greeting[2]);
 //Metodos comunes
 console.log(greeting.toLocaleUpperCase());
 console.log(greeting.toLocaleLowerCase());
-console.log(greeting.indexOf("Ru")); //Indice donde ha encntrado la palabra Inidicado
+console.log(greeting.indexOf("Ru")); //Indice donde ha encntrado la palabra inidicada
 console.log(greeting.includes("Ru")); //Indica si incluye la cadena
-console.log(greeting.slice(0, 4));
+console.log(greeting.slice(0, 4)); //Mostra do caracter 0 o 4
 console.log(greeting.replace("Ru", "Ruben"));
 
 //Template literals (Plantillas literales) -> interporar variables
