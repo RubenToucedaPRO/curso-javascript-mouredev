@@ -1,4 +1,4 @@
-//Desestructuracion
+//Desestructuracion: pasar de parametros de objetos por ejemplo a variables sueltas
 
 //Sintaxis arrays
 let a1 = [1, 2, 3, 4];
@@ -60,9 +60,10 @@ let p3 = {
 };
 
 let {
-  name: name3,
+  name: name3, //name de p3 pasa a ser name 3
   job: { name: jobName },
 } = p3;
+console.log(name3);
 console.log(jobName);
 
 //Spreading (propagacion)(...)-> crea una copia de un array
