@@ -35,7 +35,7 @@ let flatArray = nestedArray.flat(3);
 console.log(flatArray);
 
 // flatMap -> convinacion de flat y map
-
+//Si aplicas .map((phrase) => phrase.split(" ")), obtienes [["Hola", "mundo"], ["Adios", "mundo"]]
 let phrases = ["Hola mundo", "Adios mundo"];
 let phrasesUp = phrases.flatMap((phrase) => phrase.split(" "));
 console.log(phrasesUp);
