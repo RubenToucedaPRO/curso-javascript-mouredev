@@ -12,6 +12,7 @@ class Person {
 const person = new Person("Jose", 50);
 person.greet();
 
+// Los métodos añadidos dinámicamente solo afectan a esa instancia específica
 person.sayAge = function () {
   console.log(`Hola, tengo ${this.age}`);
 };
@@ -26,11 +27,13 @@ console.log(person);
 
 class Animal {
   constructor(name) {
+    // new.target detecta si se está instanciando directamente la clase Animal
     if (new.target === Animal) {
       throw new Error("No se puede instanciar una clase abstracta");
     }
     this.name = name;
   }
+  // Método que obliga a las subclases a implementarlo
   makeSound() {
     throw new Error("Este metodo debe ser implementado por la subclase");
   }
@@ -41,7 +44,7 @@ class Animal {
 //console.log(animal);
 
 // - Polimorfismo
-
+// Cada subclase implementa el mismo método de forma diferente
 class Gato extends Animal {
   makeSound() {
     console.log("Miau");
@@ -56,11 +59,11 @@ class Perro extends Animal {
 
 const cat = new Gato("Miau");
 console.log(cat);
-cat.makeSound();
+cat.makeSound(); // Salida: "Miau"
 
 const dog = new Perro("Tom");
 console.log(dog);
-dog.makeSound();
+dog.makeSound(); // Salida: "Guau"
 
 // - Mixins
 
@@ -74,7 +77,8 @@ class Pajaro extends Animal {}
 
 class Dragon extends Animal {}
 
-//Accediendo al prototype si le asigna al objeto pajaro la propiedad de volar
+// Añade métodos del mixin al prototipo de la clase
+//Accediendo al prototype le asigna al objeto pajaro la propiedad de volar
 Object.assign(Pajaro.prototype, FlyMixin);
 
 const bird = new Pajaro("Pio");
@@ -89,6 +93,7 @@ console.log(dragon);
 
 class Session {
   constructor(name) {
+    // Si ya existe una instancia, devuelve esa en lugar de crear una nueva
     if (Session.instance) {
       return Session.instance;
     }
@@ -98,34 +103,35 @@ class Session {
 }
 
 const sesion1 = new Session("Ru");
-const sesion2 = new Session();
+const sesion2 = new Session(); // Devuelve la misma instancia que sesion1
 console.log(sesion1);
-console.log(sesion2);
-const sesion3 = new Session("Jose");
-console.log(sesion3);
+console.log(sesion2); // Misma referencia en memoria
+const sesion3 = new Session("Jose"); // Devuelve la misma instancia que sesion1
+console.log(sesion3); // Misma referencia en memoria
 
 // - Symbol -> mecanismo para simular una propiedad privada pero sabiendo como se llama podemos acceder a ella y modificarla
+//// Crea una propiedad "pseudo-privada" (única e irrepetible)
 const ID = Symbol("id");
 
 class User {
   constructor(name) {
     this.name = name;
-    this[ID] = Math.random();
+    this[ID] = Math.random(); // Propiedad "privada"
   }
   getId() {
-    return this[ID];
+    return this[ID]; // Método para acceder a la propiedad privada
   }
 }
 
 const user = new User("Rubén");
 console.log(user.name);
 console.log(user.ID); //no puedes acceder a ID porque es como una propiedad privada, si la especificacion de js es anterior a 2020
+console.log(user[ID]); // Acceso correcto al Symbol
+
+user[ID] = 123; // Modificación directa del Symbol
 console.log(user[ID]);
 
-user[ID] = 123;
-console.log(user[ID]);
-
-console.log(user.getId());
+console.log(user.getId()); // Método público para obtener el ID
 
 // - instanceof
 
@@ -133,16 +139,17 @@ class Car {}
 
 const car = new Car();
 
-console.log(car === Car); //No se puede comprobar asi
-console.log(car instanceof Car);
+console.log(car === Car); // false - comparas instancia con clase
+console.log(car instanceof Car); // true - verifica herencia/prototipo
 
 // -create
+// Crea un objeto con el prototipo especificado
 const car2 = Object.create(Car.prototype);
-console.log(car2 instanceof Car);
+console.log(car2 instanceof Car); // true - tiene el mismo prototipo
 
-// -proxy: comprobaciones de seguridad y validaciones dentro de la clase
+// -proxy: te permite interceptar y personalizar el comportamiento de operaciones sobre objetos. Es como tener un "intermediario" que controla el acceso a un objeto.
 
-//Lo siguiente es el manejador
+//- Handler: define qué operaciones interceptar
 const proxy = {
   get(target, property) {
     //cuando hagas una operacion de obtencion de balance se va a ejecutar este get
@@ -163,10 +170,10 @@ class BankAccount {
     this.balance = balance;
   }
 }
-
+// Crea un proxy que envuelve la instancia de BankAccount
 const account = new Proxy(new BankAccount(100), proxy);
-console.log(account.balance);
+console.log(account.balance); // Muestra mensaje de acceso
 
-account.balance = -50;
+// account.balance = -50; // Descomentar para ver el error de validación
 
 console.log(account.balance);
