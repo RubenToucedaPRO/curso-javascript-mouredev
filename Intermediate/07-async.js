@@ -106,7 +106,7 @@ function step1Promise() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Paso 1 promesa completado");
-      resolve();
+      resolve(); //SIEMPRE: tiene que llevarlo para terminar la promesa aunque lleve codigo que no altere el resultado despues
     }, 10000);
   });
 }
