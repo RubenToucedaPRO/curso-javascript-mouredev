@@ -146,7 +146,7 @@ partialPostUpdate1();
 
 // Autenticacion mediante API Key
 async function getWeather(city) {
-  const APIKey = "faa38a2df2cf3b3a802fcf7d28c40ecf";
+  const APIKey = "";
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&exclude={part}&appid=${APIKey}`
   )
