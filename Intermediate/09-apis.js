@@ -8,7 +8,8 @@
 
 // - GET - > obtener datos
 // - POST -> enviar datos para crear un nuevo recurso
-// - PUT -> actualizar datos en el servidor
+// - PUT -> actualizar datos completos de un recurso en el servidor
+// - PATCH -> actualizar datos parciales de un recurso
 // - DELETE
 
 // Códigos de respuesta HTTP
