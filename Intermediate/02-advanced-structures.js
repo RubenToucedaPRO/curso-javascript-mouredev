@@ -134,6 +134,5 @@ const objectFromMap = Object.fromEntries(myMap);
 console.log(objectFromMap);
 
 // Objecto a Map
-
 const mapFromObject = new Map(Object.entries(objectFromMap));
 console.log(mapFromObject);
