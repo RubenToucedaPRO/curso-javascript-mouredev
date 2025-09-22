@@ -1,5 +1,27 @@
 {
   "dependencies": {
     "dotenv": "^16.0.0"
-  }
+  },
+  "name": "curso-javascript-mouredev",
+  "version": "1.0.0",
+  "description": "> 📘 Prácticas y ejercicios realizados durante el curso de JavaScript de [@mouredev](https://github.com/mouredev).  \r > 💻 Repositorio personal con soluciones y aprendizajes aplicados.",
+  "main": "index.js",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubenToucedaPRO/curso-javascript-mouredev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RubenToucedaPRO/curso-javascript-mouredev/issues"
+  },
+  "homepage": "https://github.com/RubenToucedaPRO/curso-javascript-mouredev#readme",
+  "type": "module"
 }

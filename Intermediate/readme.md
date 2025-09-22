@@ -215,3 +215,77 @@ processData([1, 2, 3], (result) => {
   console.log("El resultado es:", result);
 });
 ```
+
+## Asincronia
+Función declarada como async, automáticamente hace que esa función devuelva una promesa, aunque tú no la crees explícitamente.
+```js
+// Función normal - devuelve lo que le digas
+function normal() {
+  return "hola";
+}
+console.log(normal()); // "hola" (string)
+
+// Función async - devuelve siempre una promesa
+async function asincrona() {
+  return "listo";
+}
+console.log(asincrona()); // Promise {<fulfilled>: "listo"} (¡es una promesa!)
+```
+Async en el siguiente caso es necesario para que retorne una promesa. Esto permite que la función se ejecute de forma asíncrona sin bloquear el hilo principal
+```js
+async function esperar() {
+  return "listo";
+}
+
+// Por eso puedes hacer:
+const promesa = esperar(); // promesa es una Promise
+promesa.then(resultado => console.log(resultado)); // "listo"
+
+// O usar await:
+const resultado = await esperar(); // "listo"
+```
+
+Una promesa en JavaScript es un objeto que representa la eventual finalización (o falla) de una operación asíncrona y su valor resultante.
+
+Características principales:
+ Estado: Una promesa puede estar en uno de estos estados:
+ ** Pendiente (Pending): La operación aún no se ha completado ni fallado.
+ ** Cumplida (Fulfilled): La operación se completó con éxito. La promesa contiene un valor resultante.
+ ** Rechazada (Rejected): La operación falló. La promesa contiene un motivo de error.
+ Inmutabilidad del estado: Una vez que una promesa se cumple o se rechaza, su estado y valor (o motivo de rechazo) no pueden cambiar
+
+ Métodos de manejo:
+  .then(onFulfilled, onRejected): Se ejecuta cuando la promesa se cumple (onFulfilled) o se rechaza (onRejected).
+  .catch(onRejected): Se ejecuta específicamente cuando la promesa se rechaza.
+  .finally(onFinally): Se ejecuta siempre, independientemente del resultado final.
+
+  ```js
+  // Crear una nueva promesa
+const miPromesa = new Promise((resolve, reject) => {
+  // Simular una operación asíncrona (como una solicitud de red o un temporizador)
+  const exito = true; // Esta sería la lógica real de tu operación
+
+  if (exito) {
+    // Si la operación asíncrona tiene éxito, llamamos a resolve con el valor resultante
+    resolve("¡Operación completada con éxito!");
+  } else {
+    // Si la operación falla, llamamos a reject con el motivo del error
+    reject(new Error("Algo salió mal"));
+  }
+});
+
+// Consumir la promesa
+miPromesa
+  .then((resultado) => {
+    // Este bloque se ejecuta si la promesa se cumple
+    console.log("Éxito:", resultado);
+  })
+  .catch((error) => {
+    // Este bloque se ejecuta si la promesa se rechaza
+    console.error("Error:", error.message);
+  })
+  .finally(() => {
+    // Este bloque se ejecuta siempre al final, opcional
+    console.log("Operación finalizada (éxito o error).");
+  });
+  ```
