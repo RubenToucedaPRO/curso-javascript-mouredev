@@ -8,7 +8,7 @@ Number: 64bits
 Boolean
 Undefined: variable declarada no inicializada
 Null: ariable que no tiene valor, que estamos esperando que lo contenga
-Symbol: valores unicos que pueden ser utilizados como valores de propiedades de objetos
+Symbol: valores unicos que pueden ser utilizados como propiedades de objetos. Identificador único   
 BigInt: numero mayor a 64bits
 
 Operadores
@@ -41,7 +41,7 @@ Operadores de comparacion
 !== distinto en identidad
 
 Truthy values
-0==false -> false
+0==false -> true
 1==false -> false
 2==false -> false
 0=="" -> true
